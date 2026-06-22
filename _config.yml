@@ -1,0 +1,21 @@
+# Jekyll Configuration for GitHub Pages
+# https://jekyllrb.com/docs/configuration/
+
+# Site metadata
+title: KLOPF IT-Solutions GmbH
+description: IT-Lösungen mit kaufmännischem Verständnis und technischem Tiefgang
+baseurl: "/klopf-it-solutions"
+url: "https://YOUR_USERNAME.github.io"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Exclude files from build
+exclude:
+  - .gitignore
+  - README.md
+  - Gemfile
+  - Gemfile.lock

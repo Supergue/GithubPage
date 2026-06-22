@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – KLOPF IT-Solutions GmbH</title>
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo-section">
+          <img src="assets/logo-280x100.png" alt="KLOPF IT-Solutions GmbH" class="logo" />
+          <div class="brand-text">
+            <span class="brand-name">KLOPF IT-Solutions GmbH</span>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="about.html">Über mich</a></li>
+          <li><a href="services.html">Leistungen</a></li>
+          <li><a href="contact.html" class="active">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Kontakt</h1>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-info">
+          <h2>Kontaktinformationen</h2>
+          <p><strong>E-Mail:</strong> <a href="mailto:guenter@klopf.it">guenter@klopf.it</a></p>
+          <p><strong>Telefon:</strong> <a href="tel:+436642007923">+43 664 200 7923</a></p>
+          <p><strong>Adresse:</strong><br>
+            KLOPF IT-Solutions GmbH<br>
+            Helbetschlag 66<br>
+            4264 Grünbach, Österreich
+          </p>
+        </div>
+
+        <div class="contact-form">
+          <h2>Nachricht senden</h2>
+          <form id="contact-form" onsubmit="handleMailto(event)">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Betreff</label>
+              <input type="text" id="subject" name="subject" />
+            </div>
+            <div class="form-group">
+              <label for="message">Nachricht *</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Senden</button>
+          </form>
+          <p class="form-note"><em>Hinweis: Das Formular öffnet den E-Mail-Client (mailto) mit den eingegebenen Daten.</em></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 KLOPF IT-Solutions GmbH. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleMailto(e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var subject = document.getElementById('subject').value.trim() || 'Kontaktanfrage';
+      var message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Bitte füllen Sie Name, E-Mail und Nachricht aus.');
+        return;
+      }
+
+      var body = 'Name: ' + name + '\n' +
+                 'E-Mail: ' + email + '\n\n' +
+                 message;
+
+      var mailto = 'mailto:guenter@klopf.it'
+                 + '?subject=' + encodeURIComponent(subject)
+                 + '&body=' + encodeURIComponent(body);
+
+      // Open mailto link
+      window.location.href = mailto;
+    }
+  </script>
+</body>
+</html>
